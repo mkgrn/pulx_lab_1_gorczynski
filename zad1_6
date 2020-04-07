@@ -1,0 +1,8 @@
+#!/bin/sh
+echo -n "Wpisz tekst: \a"
+
+read wejscie
+
+echo "$wejscie"
+
+exit 0
