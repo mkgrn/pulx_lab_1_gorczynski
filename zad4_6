@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Czy są to zajęcia laboratoryjne?"
+read -n1 odpowiedz
+
+if  [[ $odpowiedz = "t" ]] || [[ $odpowiedz = "T" ]]
+then
+
+    echo 0
+
+elif    [[ $odpowiedz = "n" ]] || [[ $odpowiedz = "N" ]]
+
+then
+     echo 1
+else
+     echo 256
+fi
