@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Wpisz ciąg który chcesz znaleźć: "
+
+read n
+
+find ./ -type f -exec grep -l $n {} \;
+
