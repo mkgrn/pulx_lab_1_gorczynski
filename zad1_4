@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo „Witaj moj drogi stworco”
+
+exit 0
