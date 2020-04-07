@@ -1,0 +1,28 @@
+#!/bin/sh
+
+
+if [ "$1" != "" ]; then
+files=$1"*.txt"
+else
+files=./*
+fi
+
+if [ "$2" != "" ]; then
+zapis=$2
+else
+zapis="log.txt"
+fi
+
+for f in $files
+do
+
+linie=$(wc $f | awk '{print $1}')
+slowa=$(wc $f | awk '{print $2}')
+znaki=$(wc $f | awk '{print $3}')
+
+owner=$(stat -c "%U" $f)
+echo "$linie $slowa $znaki $f $owner"
+echo "$linie $slowa $znaki $f $owner" >> $zapis
+
+done
+exit 0
