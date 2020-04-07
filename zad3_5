@@ -1,0 +1,30 @@
+#!/bin/sh
+
+wyk=0
+while [ $wyk -le 0 ]
+do
+
+echo -n "Podaj swoje hasło:"; 
+stty -echo; 
+read haslo; 
+stty echo; 
+
+echo $haslo
+
+male=$(echo "$haslo" | grep -o "[a-z]" | wc -l)
+wielkie=$(echo "$haslo" | grep -o "[A-Z]" | wc -l)
+cyfry=$(echo "$haslo" | grep -o "[0-9]" | wc -l)
+spec=$(echo "$haslo" | grep -o "[!#$,._+:@%/-]" | wc -l)
+
+echo "Małe litery: " $male
+echo "Wielkie litery: " $wielkie
+echo "Cyfry: " $cyfry
+echo "Znaki specjalne: " $spec
+if [ $cyfry -gt 0 ] && [ $male -gt 0 ] && [ $wielkie -gt 0 ] && [ $spec -gt 0 ]; then
+echo "Hasło jest silne"
+wyk=1
+else 
+echo "Hasło jest słabe"
+fi
+done
+exit 0 
