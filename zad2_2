@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "Katalog: "
+
+read katalog
+
+cd $katalog
+
+wc -l -m *
